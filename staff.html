@@ -4,61 +4,296 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ข้อมูลบุคลากร - วิทยาลัยเทคโนโลยีโปลิเทคนิคลานนาเชียงใหม่</title>
+    <link rel="icon" type="image/png" href="asset/img/logo.png">
+    <!-- Google Fonts: Prompt -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, sans-serif; }
-        body { background-color: #f4f6f9; color: #333; display: flex; flex-direction: column; min-height: 100vh; }
-        header { background-color: #0d233a; color: white; padding: 15px 5%; display: flex; align-items: center; justify-content: space-between; }
-        .logo-box { display: flex; align-items: center; gap: 15px; }
-        .logo-box img { width: 60px; height: 60px; border-radius: 50%; border: 2px solid #dfb15b; }
-        .logo-box h1 { font-size: 1.3rem; }
-        .logo-box p { font-size: 0.8rem; color: #dfb15b; }
-        nav ul { display: flex; list-style: none; gap: 15px; }
-        nav a { color: white; text-decoration: none; font-size: 0.95rem; padding: 8px 14px; border-radius: 4px; }
-        nav a:hover, nav a.active { background-color: #dfb15b; color: #0d233a; font-weight: bold; }
-        main { flex: 1; max-width: 1000px; margin: 30px auto; padding: 0 20px; width: 100%; }
-        h2 { border-left: 5px solid #0d233a; padding-left: 10px; color: #0d233a; margin-bottom: 20px; }
-        table { width: 100%; border-collapse: collapse; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
-        th, td { padding: 12px 15px; text-align: left; border-bottom: 1px solid #ddd; }
-        th { background-color: #0d233a; color: white; }
-        tr:hover { background-color: #f1f1f1; }
-        footer { background-color: #0d233a; color: white; text-align: center; padding: 15px; margin-top: auto; border-top: 3px solid #dfb15b; font-size: 0.85rem; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Prompt', sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #f4f6f9;
+            color: #333;
+        }
+
+        /* ส่วนหัว (Header) */
+        header {
+            background-color: #0d233a;
+            color: white;
+            padding: 15px 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-box {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-box img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 2px solid #dfb15b;
+        }
+
+        .logo-box h1 {
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .logo-box p {
+            font-size: 0.88rem;
+            color: #dfb15b;
+        }
+
+        /* เมนูนำทาง (Navbar) */
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 15px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.95rem;
+            padding: 8px 14px;
+            border-radius: 4px;
+            transition: all 0.25s ease;
+        }
+
+        nav a:hover, nav a.active {
+            background-color: #dfb15b;
+            color: #0d233a;
+            font-weight: bold;
+        }
+
+        /* ส่วนเนื้อหาหลัก */
+        main {
+            flex: 1;
+            max-width: 1100px;
+            margin: 30px auto;
+            padding: 0 20px;
+            width: 100%;
+        }
+
+        h2 {
+            border-left: 5px solid #0d233a;
+            padding-left: 10px;
+            color: #0d233a;
+            margin-bottom: 25px;
+            font-size: 1.5rem;
+        }
+
+        /* เลย์เอาต์การ์ดบุคลากร 6 ช่อง (3 คอลัมน์) */
+        .staff-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            justify-content: center;
+        }
+
+        /* สไตล์การ์ดบุคลากร */
+        .staff-card {
+            background-color: #e9ecef;
+            border: 1px solid #dee2e6;
+            border-radius: 20px;
+            padding: 16px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .staff-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* กรอบรูปภาพด้านบน */
+        .card-image {
+            width: 100%;
+            height: 230px;
+            border-radius: 16px;
+            overflow: hidden;
+            background: radial-gradient(circle, #6ee7b7 0%, #10b981 100%);
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            margin-bottom: 14px;
+            position: relative;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+        }
+
+        /* กล่องรายละเอียดด้านล่าง */
+        .card-details {
+            background-color: #dbe2e8;
+            border-radius: 12px;
+            padding: 14px 10px;
+            text-align: center;
+            width: 100%;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .en-name {
+            color: #334155;
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .th-name {
+            color: #0f172a;
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .position {
+            color: #64748b;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* ส่วนท้าย (Footer) */
+        footer {
+            background-color: #0d233a;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: auto;
+            border-top: 3px solid #dfb15b;
+            font-size: 0.85rem;
+        }
     </style>
 </head>
 <body>
+
     <header>
         <div class="logo-box">
-            <img src="Logo.png" alt="โลโก้สถานศึกษา">
-            <div><h1>วิทยาลัยเทคโนโลยีโปลิเทคนิคลานนาเชียงใหม่</h1><p>Lanna Poly</p></div>
+            <img src="asset/img/logo.png" alt="โลโก้สถานศึกษา">
+            <div>
+                <h1>วิทยาลัยเทคโนโลยีโปลิเทคนิคลานนาเชียงใหม่</h1>
+                <p>Lanna Poly</p>
+            </div>
         </div>
         <nav>
             <ul>
                 <li><a href="index.html">หน้าหลัก</a></li>
                 <li><a href="executives.html">ข้อมูลผู้บริหาร</a></li>
                 <li><a href="staff.html" class="active">ข้อมูลบุคลากร</a></li>
-                <li><a href="students.html">ข้อมูลนักศึกษา</a></li>
+                <li><a href="student.html">ข้อมูลนักศึกษา</a></li>
                 <li><a href="courses.html">สาขาวิชาที่เปิดสอน</a></li>
             </ul>
         </nav>
     </header>
+
     <main>
         <h2>รายชื่อบุคลากรทางการศึกษา</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>ลำดับ</th>
-                    <th>ชื่อ - สกุล</th>
-                    <th>ตำแหน่ง</th>
-                    <th>แผนกวิชา</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td>1</td><td>นายอนันต์ สายกลั่น</td><td>หัวหน้าแผนกวิชา</td><td>เทคโนโลยีสารสนเทศ</td></tr>
-                <tr><td>2</td><td>นางสาวศิริพร บุญมี</td><td>ครูผู้สอน</td><td>เทคโนโลยีสารสนเทศ</td></tr>
-                <tr><td>3</td><td>นายธนากร เรียนดี</td><td>ครูผู้สอน</td><td>วิทยาการคอมพิวเตอร์</td></tr>
-                <tr><td>4</td><td>นางสาวมณีรัตน์ สุขใจ</td><td>เจ้าหน้าที่งานธุรการ</td><td>ฝ่ายบริหารงานทั่วไป</td></tr>
-            </tbody>
-        </table>
+        
+        <div class="staff-grid">
+            
+            <!-- การ์ดที่ 1 -->
+            <div class="staff-card">
+                <div class="card-image">
+                    <img src="asset/img/06.jpg" alt="นางสาวมยุรีย์ พงษ์บุพศิริกุล">
+                </div>
+                <div class="card-details">
+                    <div class="en-name">MissMayulee Chailangka</div>
+                    <div class="th-name">นางสาวมยุรีย์ พงษ์บุพศิริกุล</div>
+                    <div class="position">หัวหน้าสาขาวิชาเทคโนโลยีสารสนเทศ</div>
+                </div>
+            </div>
+
+            <!-- การ์ดที่ 2 -->
+            <div class="staff-card">
+                <div class="card-image">
+                    <img src="asset/img/07.jpg" alt="นางสาวณัฐกานต์ ภิรมณ์">
+                </div>
+                <div class="card-details">
+                    <div class="en-name">MissNutthakan Pirom</div>
+                    <div class="th-name">นางสาวณัฐกานต์ ภิรมณ์</div>
+                    <div class="position">รองหัวหน้าสาขาวิชาเทคโนโลยีสารสนเทศ</div>
+                </div>
+            </div>
+
+            <!-- การ์ดที่ 3 -->
+            <div class="staff-card">
+                <div class="card-image">
+                    <img src="asset/img/05.jpg" alt="นางสาวสวิตตา ประทุม">
+                </div>
+                <div class="card-details">
+                    <div class="en-name">MissSawitta Pratoom</div>
+                    <div class="th-name">นางสาวสวิตตา ประทุม</div>
+                    <div class="position">ครูเทคโนโลยีสารสนเทศ</div>
+                </div>
+            </div>
+
+            <!-- การ์ดที่ 4 -->
+            <div class="staff-card">
+                <div class="card-image">
+                    <img src="asset/img/08.jpg" alt="นางสาวธัญญลักษณ์ กันระ">
+                </div>
+                <div class="card-details">
+                    <div class="en-name">MissThunyalak Kuntha</div>
+                    <div class="th-name">นางสาวธัญญลักษณ์ กันระ</div>
+                    <div class="position">ครูเทคโนโลยีสารสนเทศ</div>
+                </div>
+            </div>
+
+            <!-- การ์ดที่ 5 -->
+            <div class="staff-card">
+                <div class="card-image">
+                    <img src="asset/img/09.jpg" alt="นายไพศาล ณ ลำปาง">
+                </div>
+                <div class="card-details">
+                    <div class="en-name">Mr.Paisan N.Lampang</div>
+                    <div class="th-name">นายไพศาล ณ ลำปาง</div>
+                    <div class="position">ครูเทคโนโลยีสารสนเทศ</div>
+                </div>
+            </div>
+
+            <!-- การ์ดที่ 6 -->
+            <div class="staff-card">
+                <div class="card-image">
+                    <img src="asset/img/10.jpg" alt="นางสาวนาริน พรมมี">
+                </div>
+                <div class="card-details">
+                    <div class="en-name">MissNarin Phromme</div>
+                    <div class="th-name">นางสาวนาริน พรมมี</div>
+                    <div class="position">ครูเทคโนโลยีสารสนเทศ</div>
+                </div>
+            </div>
+
+        </div>
     </main>
-    <footer><p>&copy; 2026 LANNA POLY | การสอบมาตรฐานวิชาชีพ</p></footer>
+
+    <footer>
+        <p>&copy; 2026 LANNA POLY | การสอบมาตรฐานวิชาชีพ</p>
+    </footer>
+
 </body>
 </html>
