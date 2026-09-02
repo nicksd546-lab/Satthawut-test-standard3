@@ -1,1 +1,63 @@
-
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>สาขาวิชาที่เปิดสอน - วิทยาลัยเทคโนโลยีสารสนเทศ</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, sans-serif; }
+        body { background-color: #f4f6f9; color: #333; display: flex; flex-direction: column; min-height: 100vh; }
+        header { background-color: #0d233a; color: white; padding: 15px 5%; display: flex; align-items: center; justify-content: space-between; }
+        .logo-box { display: flex; align-items: center; gap: 15px; }
+        .logo-box img { width: 60px; height: 60px; border-radius: 50%; border: 2px solid #dfb15b; }
+        .logo-box h1 { font-size: 1.3rem; }
+        .logo-box p { font-size: 0.8rem; color: #dfb15b; }
+        nav ul { display: flex; list-style: none; gap: 15px; }
+        nav a { color: white; text-decoration: none; font-size: 0.95rem; padding: 8px 14px; border-radius: 4px; }
+        nav a:hover, nav a.active { background-color: #dfb15b; color: #0d233a; font-weight: bold; }
+        main { flex: 1; max-width: 1000px; margin: 30px auto; padding: 0 20px; width: 100%; }
+        h2 { border-left: 5px solid #0d233a; padding-left: 10px; color: #0d233a; margin-bottom: 20px; }
+        .course-list { background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .course-item { margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid #eee; }
+        .course-item:last-child { border-bottom: none; }
+        .course-item h3 { color: #0d233a; margin-bottom: 5px; }
+        .course-item span { background: #dfb15b; color: #0d233a; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; font-weight: bold; }
+        footer { background-color: #0d233a; color: white; text-align: center; padding: 15px; margin-top: auto; border-top: 3px solid #dfb15b; font-size: 0.85rem; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-box">
+            <img src="https://img5.pic.in.th/file/secure-sv1/logo-school.png" alt="โลโก้สถานศึกษา">
+            <div><h1>วิทยาลัยเทคโนโลยีสารสนเทศ</h1><p>Information Technology College</p></div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">หน้าหลัก</a></li>
+                <li><a href="executives.html">ข้อมูลผู้บริหาร</a></li>
+                <li><a href="staff.html">ข้อมูลบุคลากร</a></li>
+                <li><a href="students.html">นักเรียน/นักศึกษา</a></li>
+                <li><a href="courses.html" class="active">สาขาวิชาที่เปิดสอน</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>หลักสูตรที่เปิดสอน</h2>
+        <div class="course-list">
+            <div class="course-item">
+                <h3>สาขาวิชาเทคโนโลยีสารสนเทศ <span>ปวช. & ปวส.</span></h3>
+                <p>เน้นการพัฒนาระบบเครือข่าย พัฒนาเว็บไซต์ เขียนโปรแกรม และการจัดการฐานข้อมูล</p>
+            </div>
+            <div class="course-item">
+                <h3>สาขาวิชาเทคโนโลยีดิจิทัลกราฟิก <span>ปวช.</span></h3>
+                <p>เน้นการออกแบบสื่อสิ่งพิมพ์ ออกแบบกราฟิก 2D/3D และการตัดต่อมัลติมีเดีย</p>
+            </div>
+            <div class="course-item">
+                <h3>สาขาวิชาการพัฒนาซอฟต์แวร์ <span>ปวส.</span></h3>
+                <p>เน้นการเขียนโปรแกรมขั้นสูง การพัฒนาแอปพลิเคชันบนมือถือ และระบบคลาวด์</p>
+            </div>
+        </div>
+    </main>
+    <footer><p>&copy; 2026 วิทยาลัยเทคโนโลยีสารสนเทศ | การสอบมาตรฐานวิชาชีพ</p></footer>
+</body>
+</html>
