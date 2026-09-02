@@ -1,1 +1,64 @@
-
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ข้อมูลบุคลากร - วิทยาลัยเทคโนโลยีสารสนเทศ</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, sans-serif; }
+        body { background-color: #f4f6f9; color: #333; display: flex; flex-direction: column; min-height: 100vh; }
+        header { background-color: #0d233a; color: white; padding: 15px 5%; display: flex; align-items: center; justify-content: space-between; }
+        .logo-box { display: flex; align-items: center; gap: 15px; }
+        .logo-box img { width: 60px; height: 60px; border-radius: 50%; border: 2px solid #dfb15b; }
+        .logo-box h1 { font-size: 1.3rem; }
+        .logo-box p { font-size: 0.8rem; color: #dfb15b; }
+        nav ul { display: flex; list-style: none; gap: 15px; }
+        nav a { color: white; text-decoration: none; font-size: 0.95rem; padding: 8px 14px; border-radius: 4px; }
+        nav a:hover, nav a.active { background-color: #dfb15b; color: #0d233a; font-weight: bold; }
+        main { flex: 1; max-width: 1000px; margin: 30px auto; padding: 0 20px; width: 100%; }
+        h2 { border-left: 5px solid #0d233a; padding-left: 10px; color: #0d233a; margin-bottom: 20px; }
+        table { width: 100%; border-collapse: collapse; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        th, td { padding: 12px 15px; text-align: left; border-bottom: 1px solid #ddd; }
+        th { background-color: #0d233a; color: white; }
+        tr:hover { background-color: #f1f1f1; }
+        footer { background-color: #0d233a; color: white; text-align: center; padding: 15px; margin-top: auto; border-top: 3px solid #dfb15b; font-size: 0.85rem; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-box">
+            <img src="https://img5.pic.in.th/file/secure-sv1/logo-school.png" alt="โลโก้สถานศึกษา">
+            <div><h1>วิทยาลัยเทคโนโลยีสารสนเทศ</h1><p>Information Technology College</p></div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">หน้าหลัก</a></li>
+                <li><a href="executives.html">ข้อมูลผู้บริหาร</a></li>
+                <li><a href="staff.html" class="active">ข้อมูลบุคลากร</a></li>
+                <li><a href="students.html">นักเรียน/นักศึกษา</a></li>
+                <li><a href="courses.html">สาขาวิชาที่เปิดสอน</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>รายชื่อบุคลากรทางการศึกษา</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ลำดับ</th>
+                    <th>ชื่อ - สกุล</th>
+                    <th>ตำแหน่ง</th>
+                    <th>แผนกวิชา</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>นายอนันต์ สายกลั่น</td><td>หัวหน้าแผนกวิชา</td><td>เทคโนโลยีสารสนเทศ</td></tr>
+                <tr><td>2</td><td>นางสาวศิริพร บุญมี</td><td>ครูผู้สอน</td><td>เทคโนโลยีสารสนเทศ</td></tr>
+                <tr><td>3</td><td>นายธนากร เรียนดี</td><td>ครูผู้สอน</td><td>วิทยาการคอมพิวเตอร์</td></tr>
+                <tr><td>4</td><td>นางสาวมณีรัตน์ สุขใจ</td><td>เจ้าหน้าที่งานธุรการ</td><td>ฝ่ายบริหารงานทั่วไป</td></tr>
+            </tbody>
+        </table>
+    </main>
+    <footer><p>&copy; 2026 วิทยาลัยเทคโนโลยีสารสนเทศ | การสอบมาตรฐานวิชาชีพ</p></footer>
+</body>
+</html>
