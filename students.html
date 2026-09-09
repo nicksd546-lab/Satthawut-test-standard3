@@ -3,14 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>ข้อมูลนักเรียน นักศึกษา - วิทยาลัยเทคโนโลยีโปลิเทคนิคลานนาเชียงใหม่</title>
+
     <link rel="icon" type="image/png" href="Logo.png">
-    <!-- Google Fonts: Prompt -->
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
+
         * {
             box-sizing: border-box;
             margin: 0;
@@ -26,7 +30,7 @@
             color: #333;
         }
 
-        /* ส่วนหัว (Header) */
+        /* HEADER */
         header {
             background-color: #0d233a;
             color: white;
@@ -34,6 +38,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            gap: 20px;
         }
 
         .logo-box {
@@ -47,6 +52,7 @@
             height: 60px;
             border-radius: 50%;
             border: 2px solid #dfb15b;
+            object-fit: cover;
         }
 
         .logo-box h1 {
@@ -59,11 +65,13 @@
             color: #dfb15b;
         }
 
-        /* แถบเมนูนำทาง (Navbar) */
+        /* NAVBAR */
         nav ul {
             display: flex;
             list-style: none;
-            gap: 15px;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
         nav a {
@@ -75,13 +83,14 @@
             transition: all 0.25s ease;
         }
 
-        nav a:hover, nav a.active {
+        nav a:hover,
+        nav a.active {
             background-color: #dfb15b;
             color: #0d233a;
             font-weight: bold;
         }
 
-        /* ส่วนเนื้อหาหลัก */
+        /* MAIN */
         main {
             flex: 1;
             max-width: 1100px;
@@ -98,24 +107,25 @@
             font-size: 1.5rem;
         }
 
-        /* เลย์เอาต์การ์ดข้อมูล 3 ช่อง */
+        /* CARD GRID */
         .info-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
-            justify-content: center;
         }
 
-        /* สไตล์การ์ดข้อมูล (ปรับโทนสีเขียวตามรูปภาพ) */
         .info-card {
             background-color: #ffffff;
             border: 1.5px solid #d1fae5;
             border-radius: 16px;
             padding: 12px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+
             display: flex;
             flex-direction: column;
-            transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+            transition: transform 0.25s ease,
+                        box-shadow 0.25s ease;
         }
 
         .info-card:hover {
@@ -123,7 +133,7 @@
             box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
         }
 
-        /* กรอบรูปภาพด้านบน */
+        /* IMAGE */
         .card-image {
             width: 100%;
             height: 270px;
@@ -139,14 +149,16 @@
             object-fit: cover;
         }
 
-        /* กล่องรายละเอียดด้านล่าง (สีเขียวอ่อน) */
+        /* DETAILS */
         .card-details {
             background-color: #f0fdf4;
             border: 1px solid #dcfce7;
             border-radius: 12px;
             padding: 14px 10px;
             text-align: center;
+
             flex: 1;
+
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -156,20 +168,20 @@
             color: #15803d;
             font-size: 1.05rem;
             font-weight: 700;
-            margin: 0 0 6px 0;
+            margin-bottom: 6px;
         }
 
         .person-name {
             color: #475569;
             font-size: 0.92rem;
-            margin: 0 0 4px 0;
+            margin-bottom: 4px;
         }
 
         .person-phone {
             color: #1e293b;
             font-size: 0.9rem;
             font-weight: 700;
-            margin: 0 0 4px 0;
+            margin-bottom: 4px;
         }
 
         .email-label {
@@ -177,18 +189,16 @@
             font-size: 0.9rem;
             font-weight: 700;
             text-decoration: underline;
-            margin: 0 0 2px 0;
-            display: inline-block;
+            margin-bottom: 2px;
         }
 
         .person-email {
             color: #475569;
             font-size: 0.88rem;
-            margin: 0;
             word-break: break-all;
         }
 
-        /* ส่วนท้าย (Footer) */
+        /* FOOTER */
         footer {
             background-color: #0d233a;
             color: white;
@@ -198,81 +208,228 @@
             border-top: 3px solid #dfb15b;
             font-size: 0.85rem;
         }
+
+        /* MOBILE */
+        @media (max-width: 800px) {
+
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .logo-box {
+                flex-direction: column;
+            }
+
+            .logo-box h1 {
+                font-size: 1.1rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            nav a {
+                display: block;
+                width: 100%;
+            }
+
+        }
+
     </style>
 </head>
+
 <body>
 
+    <!-- HEADER -->
     <header>
+
         <div class="logo-box">
+
             <img src="Logo.png" alt="โลโก้สถานศึกษา">
+
             <div>
                 <h1>วิทยาลัยเทคโนโลยีโปลิเทคนิคลานนาเชียงใหม่</h1>
                 <p>Lanna Poly</p>
             </div>
+
         </div>
+
+        <!-- NAVBAR -->
         <nav>
             <ul>
-                <li><a href="index.html">หน้าหลัก</a></li>
-                <li><a href="executives.html">ข้อมูลผู้บริหาร</a></li>
-                <li><a href="staff.html">ข้อมูลบุคลากร</a></li>
-                <li><a href="students.html" class="active">ข้อมูลนักศึกษา</a></li>
-                <li><a href="courses.html">สาขาวิชาที่เปิดสอน</a></li>
+
+                <li>
+                    <a href="index.html">
+                        หน้าหลัก
+                    </a>
+                </li>
+
+                <li>
+                    <a href="executives.html">
+                        ข้อมูลผู้บริหาร
+                    </a>
+                </li>
+
+                <li>
+                    <a href="staff.html">
+                        ข้อมูลบุคลากร
+                    </a>
+                </li>
+
+                <!-- แก้ตรงนี้เป็น student.html -->
+                <li>
+                    <a href="student.html" class="active">
+                        ข้อมูลนักศึกษา
+                    </a>
+                </li>
+
+                <li>
+                    <a href="courses.html">
+                        สาขาวิชาที่เปิดสอน
+                    </a>
+                </li>
+
             </ul>
         </nav>
+
     </header>
 
+
+    <!-- MAIN -->
     <main>
-        <h2>ข้อมูลนักเรียน นักศึกษา</h2>
+
+        <h2>
+            ข้อมูลนักเรียน นักศึกษา
+        </h2>
 
         <div class="info-grid">
-            
-            <!-- การ์ดที่ 1: ชื่อนักศึกษา -->
+
+
+            <!-- นักศึกษา -->
             <div class="info-card">
+
                 <div class="card-image">
-                    <img src="asset/img/04.jpg" alt="นักศึกษา">
+                    <img
+                        src="asset/img/04.jpg"
+                        alt="นักศึกษา"
+                    >
                 </div>
+
                 <div class="card-details">
-                    <div class="card-title">ชื่อนักศึกษา</div>
-                    <div class="person-name">นายเสฎฐวุฒิ แก้วธิ</div>
-                    <div class="person-phone">โทร : 0988096775</div>
-                    <span class="email-label">Email</span>
-                    <div class="person-email">-</div>
+
+                    <div class="card-title">
+                        ชื่อนักศึกษา
+                    </div>
+
+                    <div class="person-name">
+                        นายเสฎฐวุฒิ แก้วธิ
+                    </div>
+
+                    <div class="person-phone">
+                        โทร : 0988096775
+                    </div>
+
+                    <span class="email-label">
+                        Email
+                    </span>
+
+                    <div class="person-email">
+                        stu67219010042@lannapoly.ac.th
+                    </div>
+
                 </div>
+
             </div>
 
-            <!-- การ์ดที่ 2: ชื่ออาจารย์ที่ปรึกษา -->
+
+            <!-- อาจารย์ที่ปรึกษา -->
             <div class="info-card">
+
                 <div class="card-image">
-                    <img src="asset/img/05.jpg" alt="อาจารย์ที่ปรึกษา">
+                    <img
+                        src="asset/img/05.jpg"
+                        alt="อาจารย์ที่ปรึกษา"
+                    >
                 </div>
+
                 <div class="card-details">
-                    <div class="card-title">ชื่ออาจารย์ที่ปรึกษา</div>
-                    <div class="person-name">อ. สวิตตา ประทุม</div>
-                    <div class="person-phone">โทร : 0869155565</div>
-                    <span class="email-label">Email</span>
-                    <div class="person-email">aj_pee25@hotmail.com</div>
+
+                    <div class="card-title">
+                        ชื่ออาจารย์ที่ปรึกษา
+                    </div>
+
+                    <div class="person-name">
+                        อ. สวิตตา ประทุม
+                    </div>
+
+                    <div class="person-phone">
+                        โทร : 0869155565
+                    </div>
+
+                    <span class="email-label">
+                        Email
+                    </span>
+
+                    <div class="person-email">
+                        aj_pee25@hotmail.com
+                    </div>
+
                 </div>
+
             </div>
 
-            <!-- การ์ดที่ 3: ชื่ออาจารย์หัวหน้าแผนก -->
+
+            <!-- หัวหน้าแผนก -->
             <div class="info-card">
+
                 <div class="card-image">
-                    <img src="asset/img/06.jpg" alt="อาจารย์หัวหน้าแผนก">
+                    <img
+                        src="asset/img/06.jpg"
+                        alt="อาจารย์หัวหน้าแผนก"
+                    >
                 </div>
+
                 <div class="card-details">
-                    <div class="card-title">ชื่ออาจารย์หัวหน้าแผนก</div>
-                    <div class="person-name">อ. มยุรีย์ พงษ์บุพศิริกุล</div>
-                    <div class="person-phone">โทร : 0824468994</div>
-                    <span class="email-label">Email</span>
-                    <div class="person-email">mhanoi1@hotmail.com</div>
+
+                    <div class="card-title">
+                        ชื่ออาจารย์หัวหน้าแผนก
+                    </div>
+
+                    <div class="person-name">
+                        อ. มยุรีย์ พงษ์บุพศิริกุล
+                    </div>
+
+                    <div class="person-phone">
+                        โทร : 0824468994
+                    </div>
+
+                    <span class="email-label">
+                        Email
+                    </span>
+
+                    <div class="person-email">
+                        mhanoi1@hotmail.com
+                    </div>
+
                 </div>
+
             </div>
+
 
         </div>
+
     </main>
 
+
+    <!-- FOOTER -->
     <footer>
-        <p>&copy; 2026 LANNA POLY | การสอบมาตรฐานวิชาชีพ</p>
+
+        <p>
+            &copy; 2026 LANNA POLY | การสอบมาตรฐานวิชาชีพ
+        </p>
+
     </footer>
 
 </body>
